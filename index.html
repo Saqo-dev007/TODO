@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="edit-block">
+        <input type="text" id="editor" placeholder="input edited text for TODO">
+        <button class="edit-btn">EDIT</button>
+    </div>
+    <div class="container">
+        <form>
+            <input type="text" id="search" autocomplete="off">
+            <button class="add">Add TODO</button>
+        </form>
+        <div class="todos"></div>
+        <div class="footer">
+            <span class="footer-span">0/0 completed</span>
+            <button class="rem-btn btn1">Select All</button>
+            <button class="rem-btn archive">Archive</button>
+            <button class="rem-btn btn2">Remove Completed</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

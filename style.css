@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Libertinus Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e, #00d3e2);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 10   00px;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    border-radius: 24px;
+    box-shadow:
+        5px 5px 10px rgba(0, 57, 71, 0.7),
+        -5px -5px 10px rgba(1, 0, 63, 0.7);
+}
+
+form {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#search {
+    width: 80%;
+    height: 55px;
+    border: 0;
+    outline: none;
+    padding: 3px 10px 20px 20px;
+    font-size: 50px;
+    background: none;
+    border-bottom: 3px solid transparent;
+    background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    background-repeat: no-repeat;
+    background-size: 100% 3px;
+    background-position: 0 100%;
+    transition: all 0.3s ease;
+    animation: changeColor 2s both infinite;
+    position: relative;
+    bottom: -10px;
+}
+
+@keyframes changeColor {
+    0% {
+        color: #d11149;
+    }
+
+    50% {
+        color: #0c63e7;
+    }
+
+    100% {
+        color: #d11149;
+    }
+}
+
+input.gradient-border-bottom:focus {
+    background-size: 100% 4px;
+    color: #000;
+}
+
+.add, .rem-btn {
+    position: relative;
+    width: 20%;
+    height: 60px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.509), rgba(170, 170, 170, 0.456));
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+    transition: all 0.7s;
+    font-size: 18px;
+    color: rgba(255, 223, 223, 0.7);
+    user-select: none;
+}
+
+.add::after,
+.add::before,
+.rem-btn::after,
+.rem-btn::before {
+    content: '';
+    position: absolute;
+    border-radius: 16px;
+    inset: -3px;
+    background: conic-gradient(from var(--angle), #0c63e7, #060c21, #d11149, #060c21, #0c63e7);
+    z-index: -1;
+}
+
+.add:hover::after,
+.rem-btn:hover::after {
+    animation: rotateBorder 1.5s linear infinite;
+}
+
+.add::before,
+.rem-btn::before {
+    z-index: -2;
+    filter: blur(20px);
+    opacity: 0.7;
+}
+
+.add:hover:before,
+.rem-btn:hover::before {
+    animation: blur-effect 1.5s both infinite;
+}
+
+.rem-btn {
+    height: 40px;   
+    width: 200px;
+}
+
+@keyframes blur-effect {
+    from {
+        filter: blur(20px);
+    }
+
+    to {
+        filter: blur(19px);
+    }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 53deg;
+    inherits: false;
+}
+
+@keyframes rotateBorder {
+    0% {
+        --angle: 53deg;
+    }
+
+    100% {
+        --angle: 413deg;
+    }
+}
+
+.footer {
+    width: 100%;
+    height: fit-content;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.footer span {
+    font-size: 24px;
+    animation: changeColor 2s both infinite;
+}
+
+.todos {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    user-select: none;
+}
+
+.todo {
+    width: 80%;
+    height: fit-content ;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 60px;
+    align-items: center;
+    background: linear-gradient(to right, #0c63e7, #060c21, #d11149);
+    color: white;
+    border-radius: 12px;
+    font-size: 42px;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: #007bff;
+    border-radius: 2px;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+    border-color: #007bff;
+    background-color: #e6f2ff;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.edit-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    display: none;
+    z-index: 9999;
+}
+
+#editor {
+    width: 300px;
+    height: 50px;
+    padding: 3px 0px 3px 10px;
+    border: 0;
+    outline: none;
+    background: none;
+    font-size: 24px;
+    color: white;
+}
+
+#editor::placeholder {
+    color: rgba(255, 255, 255, 0.524);
+}
+
+.edit-btn {
+    width: 150px;
+    height: 50px;
+    border: 1px solid white;
+    background: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 24px;
+}
